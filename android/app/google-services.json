@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "609848145559",
+    "project_id": "pentia-1e4eb",
+    "storage_bucket": "pentia-1e4eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609848145559:android:2641d8d3f3aa3523219bd2",
+        "android_client_info": {
+          "package_name": "com.paviln.pentia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609848145559-sl4lo9gri6l7hh3li5qp87duuiba41ec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.paviln.pentia",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "609848145559-cflbli3gd5fokk1ktsgtt5k94engr3qa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz3VpYNBYQ6-GlBYbTygumx9EB8Qsco3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609848145559-cflbli3gd5fokk1ktsgtt5k94engr3qa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

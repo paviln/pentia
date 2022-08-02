@@ -1,4 +1,5 @@
 {
   "name": "pentia",
-  "displayName": "pentia"
+  "displayName": "pentia",
+  "plugins": ["@react-native-google-signin/google-signin"]
 }
