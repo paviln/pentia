@@ -1,0 +1,183 @@
+[debug] [2022-08-07T13:21:50.529Z] ----------------------------------------------------------------------
+[debug] [2022-08-07T13:21:50.531Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --import ./firebase-export --export-on-exit ./firebase-export
+[debug] [2022-08-07T13:21:50.531Z] CLI Version:   11.4.2
+[debug] [2022-08-07T13:21:50.532Z] Platform:      win32
+[debug] [2022-08-07T13:21:50.532Z] Node Version:  v16.14.2
+[debug] [2022-08-07T13:21:50.533Z] Time:          Sun Aug 07 2022 15:21:50 GMT+0200 (Central European Summer Time)
+[debug] [2022-08-07T13:21:50.533Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-08-07T13:21:50.596Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-08-07T13:21:50.597Z] > authorizing via signed-in user (paviln97dk@gmail.com)
+[debug] [2022-08-07T13:21:50.679Z] java version "17.0.2" 2022-01-18 LTS
+
+[debug] [2022-08-07T13:21:50.679Z] Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)
+
+[debug] [2022-08-07T13:21:50.704Z] Parsed Java major version: 17
+[info] i  emulators: Starting emulators: auth, functions, firestore, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, storage"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project pentia-1e4eb. This may result in unexpected behavior. 
+[debug] [2022-08-07T13:21:50.716Z] [hub] writing locator at C:\Users\pavil\AppData\Local\Temp\hub-pentia-1e4eb.json
+[warn] !  emulators: Could not find import/export metadata file, skipping data import! {"metadata":{"emulator":{"name":"hub"},"message":"Could not find import/export metadata file, \u001b[1mskipping data import!\u001b[22m"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, hosting, pubsub {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, hosting, pubsub\u001b[22m"}}
+[info] +  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-08-07T13:21:50.742Z] defaultcredentials: writing to file C:\Users\pavil\AppData\Roaming\firebase\paviln97dk_gmail_com_application_default_credentials.json
+[debug] [2022-08-07T13:21:50.743Z] Setting GAC to C:\Users\pavil\AppData\Roaming\firebase\paviln97dk_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\pavil\\AppData\\Roaming\\firebase\\paviln97dk_gmail_com_application_default_credentials.json"}}
+[debug] [2022-08-07T13:21:50.745Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pentia-1e4eb/adminSdkConfig [none]
+[debug] [2022-08-07T13:21:51.024Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pentia-1e4eb/adminSdkConfig 200
+[debug] [2022-08-07T13:21:51.024Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pentia-1e4eb/adminSdkConfig {"projectId":"pentia-1e4eb","storageBucket":"pentia-1e4eb.appspot.com","locationId":"europe-west"}
+[warn] !  firestore: Did not find a Cloud Firestore rules file specified in a firebase.json config file. {"metadata":{"emulator":{"name":"firestore"},"message":"Did not find a Cloud Firestore rules file specified in a firebase.json config file."}}
+[warn] !  firestore: The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"firestore"},"message":"The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[debug] [2022-08-07T13:21:51.034Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-08-07T13:21:51.034Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-08-07T13:21:51.034Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\pavil\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.14.4.jar","--host","localhost","--port",8080,"--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\pavil\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.14.4.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2022-08-07T13:21:58.213Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-08-07T13:21:58.934Z] Temp file directory for storage emulator: C:\Users\pavil\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\pavil\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[warn] !  ui: Emulator UI unable to start on port 4000, starting on 4011 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4011 instead."}}
+[debug] [2022-08-07T13:21:58.958Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-08-07T13:21:58.958Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-08-07T13:21:58.958Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\pavil\\.cache\\firebase\\emulators\\ui-v1.8.1\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\pavil\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.8.1\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-08-07T13:21:59.078Z] Web / API server started at localhost:4011
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4011\n"}}
+[info] i  functions: Watching "C:\Users\pavil\source\repos\pentia\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\pavil\\source\\repos\\pentia\\functions\" for Cloud Functions..."}}
+[debug] [2022-08-07T13:21:59.234Z] Validating nodejs source
+[debug] [2022-08-07T13:22:00.603Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^0.2.0",
+    "typescript": "^4.5.4"
+  },
+  "private": true
+}
+[debug] [2022-08-07T13:22:00.603Z] Building nodejs source
+[debug] [2022-08-07T13:22:00.603Z] Analyzing nodejs backend spec
+[debug] [2022-08-07T13:22:00.606Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-08-07T13:22:00.842Z] Serving at port 9005
+
+[debug] [2022-08-07T13:22:01.206Z] Got response from /__/functions.yaml {"endpoints":{"createUser":{"platform":"gcfv1","eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","eventFilters":{"resource":"projects/pentia-1e4eb"},"retry":false},"labels":{},"entryPoint":"createUser"},"removeUser":{"platform":"gcfv1","eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.delete","eventFilters":{"resource":"projects/pentia-1e4eb"},"retry":false},"labels":{},"entryPoint":"removeUser"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-08-07T13:22:01.231Z] shutdown requested via /__/quitquitquit
+
+[debug] [2022-08-07T13:22:03.554Z] addAuthTrigger {"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/pentia-1e4eb"}}
+[info] +  functions[us-central1-createUser]: auth function initialized. {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mauth\u001b[22m function initialized."}}
+[debug] [2022-08-07T13:22:03.555Z] addAuthTrigger {"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.delete","resource":"projects/pentia-1e4eb"}}
+[info] +  functions[us-central1-removeUser]: auth function initialized. {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mauth\u001b[22m function initialized."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4011                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ localhost:9099 │ http://localhost:4011/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ localhost:5001 │ http://localhost:4011/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ localhost:8080 │ http://localhost:4011/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Storage        │ localhost:9199 │ http://localhost:4011/storage   │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-08-07T13:22:28.951Z] File C:\Users\pavil\source\repos\pentia\functions\src\index.ts changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\pavil\\source\\repos\\pentia\\functions\\src\\index.ts changed, reloading triggers"}}
+[debug] [2022-08-07T13:22:29.962Z] Validating nodejs source
+[debug] [2022-08-07T13:22:31.352Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^0.2.0",
+    "typescript": "^4.5.4"
+  },
+  "private": true
+}
+[debug] [2022-08-07T13:22:31.352Z] Building nodejs source
+[debug] [2022-08-07T13:22:31.352Z] Analyzing nodejs backend spec
+[debug] [2022-08-07T13:22:31.353Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-08-07T13:22:31.547Z] Serving at port 9005
+
+[debug] [2022-08-07T13:22:31.993Z] Got response from /__/functions.yaml {"endpoints":{"createUser":{"platform":"gcfv1","eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","eventFilters":{"resource":"projects/pentia-1e4eb"},"retry":false},"labels":{},"entryPoint":"createUser"},"removeUser":{"platform":"gcfv1","eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.delete","eventFilters":{"resource":"projects/pentia-1e4eb"},"retry":false},"labels":{},"entryPoint":"removeUser"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-08-07T13:22:32.024Z] shutdown requested via /__/quitquitquit
+
+[debug] [2022-08-07T13:23:39.436Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/pentia-1e4eb/trigger_multicast [none]
+[debug] [2022-08-07T13:23:39.436Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/pentia-1e4eb/trigger_multicast {"eventId":"eb532882-b017-420e-b084-b29976f74e83","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/pentia-1e4eb","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2022-08-07T13:23:39.436Z","data":{"uid":"wetp3xM6LAAer4sdyKxbldPSYoXR","email":"paviln97dk@gmail.com","emailVerified":true,"displayName":"Jens Christensen","photoURL":"https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c","metadata":{"lastSignInTime":"2022-08-07T13:23:39.435Z"},"customClaims":{},"providerData":[{"providerId":"google.com","rawId":"116740594955009033783","federatedId":"116740594955009033783","displayName":"Jens Christensen","photoUrl":"https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c","email":"paviln97dk@gmail.com"}]}}
+[debug] [2022-08-07T13:23:39.443Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-08-07T13:23:39.444Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-08-07T13:23:39.444Z] Accepted multicast request POST /functions/projects/pentia-1e4eb/trigger_multicast --> us-central1-createUser-0 {"metadata":{"emulator":{"name":"functions"},"message":"Accepted multicast request POST /functions/projects/pentia-1e4eb/trigger_multicast --> us-central1-createUser-0"}}
+[debug] [2022-08-07T13:23:39.454Z] [worker-pool] addWorker(us-central1-createUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-createUser)"}}
+[debug] [2022-08-07T13:23:39.454Z] [worker-pool] Adding worker with key us-central1-createUser, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-createUser, total=1"}}
+[debug] [2022-08-07T13:23:39.454Z] [worker-pool] submitWork(triggerId=us-central1-createUser) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-createUser)"}}
+[debug] [2022-08-07T13:23:39.454Z] [worker-us-central1-createUser-231f2e2d-2c52-4df8-9e3d-d48f93e3b89f]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createUser-231f2e2d-2c52-4df8-9e3d-d48f93e3b89f]: BUSY"}}
+[debug] [2022-08-07T13:23:39.457Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/pentia-1e4eb/trigger_multicast 200
+[debug] [2022-08-07T13:23:39.457Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/pentia-1e4eb/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2022-08-07T13:23:40.599Z] [runtime-status] [5732] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"C:\\Users\\pavil\\source\\repos\\pentia\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"C:\\\\Users\\\\pavil\\\\source\\\\repos\\\\pentia\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2022-08-07T13:23:40.600Z] [runtime-status] [5732] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"C:\\Users\\pavil\\source\\repos\\pentia\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"C:\\\\Users\\\\pavil\\\\source\\\\repos\\\\pentia\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2022-08-07T13:23:40.600Z] [runtime-status] [5732] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-08-07T13:23:40.601Z] [runtime-status] [5732] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"C:\\Users\\pavil\\source\\repos\\pentia\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"C:\\\\Users\\\\pavil\\\\source\\\\repos\\\\pentia\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2022-08-07T13:23:40.640Z] [runtime-status] [5732] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-08-07T13:23:40.640Z] [runtime-status] [5732] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.22.0","resolution":"C:\\Users\\pavil\\source\\repos\\pentia\\functions\\node_modules\\firebase-functions\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"C:\\\\Users\\\\pavil\\\\source\\\\repos\\\\pentia\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}}"}}
+[debug] [2022-08-07T13:23:40.640Z] [runtime-status] [5732] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"C:\\Users\\pavil\\source\\repos\\pentia\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"C:\\\\Users\\\\pavil\\\\source\\\\repos\\\\pentia\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2022-08-07T13:23:40.641Z] [runtime-status] [5732] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"C:\\Users\\pavil\\source\\repos\\pentia\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"C:\\\\Users\\\\pavil\\\\source\\\\repos\\\\pentia\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2022-08-07T13:23:40.642Z] [runtime-status] [5732] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"C:\\Users\\pavil\\source\\repos\\pentia\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"C:\\\\Users\\\\pavil\\\\source\\\\repos\\\\pentia\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2022-08-07T13:23:40.642Z] [runtime-status] [5732] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"10.3.0","resolution":"C:\\Users\\pavil\\source\\repos\\pentia\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"C:\\\\Users\\\\pavil\\\\source\\\\repos\\\\pentia\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2022-08-07T13:23:40.643Z] [runtime-status] [5732] Functions runtime initialized. {"cwd":"C:\\Users\\pavil\\source\\repos\\pentia\\functions","node_version":"16.14.2"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\pavil\\\\source\\\\repos\\\\pentia\\\\functions\",\"node_version\":\"16.14.2\"}"}}
+[debug] [2022-08-07T13:23:40.645Z] [runtime-status] [5732] initializeApp(DEFAULT) {"storageBucket":"pentia-1e4eb.appspot.com","projectId":"pentia-1e4eb"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] initializeApp(DEFAULT) {\"storageBucket\":\"pentia-1e4eb.appspot.com\",\"projectId\":\"pentia-1e4eb\"}"}}
+[debug] [2022-08-07T13:23:40.948Z] [runtime-status] [5732] Beginning invocation function createUser! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Beginning invocation function createUser!"}}
+[info] i  functions: Beginning execution of "createUser" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"Beginning execution of \"createUser\""}}
+[debug] [2022-08-07T13:23:40.949Z] [runtime-status] [5732] Running createUser in signature event {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Running createUser in signature event"}}
+[debug] [2022-08-07T13:23:40.950Z] [runtime-status] [5732] ProcessBackground {"eventId":"eb532882-b017-420e-b084-b29976f74e83","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/pentia-1e4eb","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2022-08-07T13:23:39.436Z","data":{"uid":"wetp3xM6LAAer4sdyKxbldPSYoXR","email":"paviln97dk@gmail.com","emailVerified":true,"displayName":"Jens Christensen","photoURL":"https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c","metadata":{"lastSignInTime":"2022-08-07T13:23:39.435Z"},"customClaims":{},"providerData":[{"providerId":"google.com","rawId":"116740594955009033783","federatedId":"116740594955009033783","displayName":"Jens Christensen","photoUrl":"https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c","email":"paviln97dk@gmail.com"}]}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] ProcessBackground {\"eventId\":\"eb532882-b017-420e-b084-b29976f74e83\",\"eventType\":\"providers/firebase.auth/eventTypes/user.create\",\"resource\":{\"name\":\"projects/pentia-1e4eb\",\"service\":\"firebaseauth.googleapis.com\"},\"params\":{},\"timestamp\":\"2022-08-07T13:23:39.436Z\",\"data\":{\"uid\":\"wetp3xM6LAAer4sdyKxbldPSYoXR\",\"email\":\"paviln97dk@gmail.com\",\"emailVerified\":true,\"displayName\":\"Jens Christensen\",\"photoURL\":\"https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c\",\"metadata\":{\"lastSignInTime\":\"2022-08-07T13:23:39.435Z\"},\"customClaims\":{},\"providerData\":[{\"providerId\":\"google.com\",\"rawId\":\"116740594955009033783\",\"federatedId\":\"116740594955009033783\",\"displayName\":\"Jens Christensen\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c\",\"email\":\"paviln97dk@gmail.com\"}]}}"}}
+[debug] [2022-08-07T13:23:40.950Z] [runtime-status] [5732] ProcessBackground: lifting resource.name from resource {"name":"projects/pentia-1e4eb","service":"firebaseauth.googleapis.com"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] ProcessBackground: lifting resource.name from resource {\"name\":\"projects/pentia-1e4eb\",\"service\":\"firebaseauth.googleapis.com\"}"}}
+[debug] [2022-08-07T13:23:40.950Z] [runtime-status] [5732] RunBackground {"data":{"uid":"wetp3xM6LAAer4sdyKxbldPSYoXR","email":"paviln97dk@gmail.com","emailVerified":true,"displayName":"Jens Christensen","photoURL":"https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c","metadata":{"lastSignInTime":"2022-08-07T13:23:39.435Z"},"customClaims":{},"providerData":[{"providerId":"google.com","rawId":"116740594955009033783","federatedId":"116740594955009033783","displayName":"Jens Christensen","photoUrl":"https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c","email":"paviln97dk@gmail.com"}]},"context":{"eventId":"eb532882-b017-420e-b084-b29976f74e83","eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/pentia-1e4eb","params":{},"timestamp":"2022-08-07T13:23:39.436Z"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] RunBackground {\"data\":{\"uid\":\"wetp3xM6LAAer4sdyKxbldPSYoXR\",\"email\":\"paviln97dk@gmail.com\",\"emailVerified\":true,\"displayName\":\"Jens Christensen\",\"photoURL\":\"https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c\",\"metadata\":{\"lastSignInTime\":\"2022-08-07T13:23:39.435Z\"},\"customClaims\":{},\"providerData\":[{\"providerId\":\"google.com\",\"rawId\":\"116740594955009033783\",\"federatedId\":\"116740594955009033783\",\"displayName\":\"Jens Christensen\",\"photoUrl\":\"https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c\",\"email\":\"paviln97dk@gmail.com\"}]},\"context\":{\"eventId\":\"eb532882-b017-420e-b084-b29976f74e83\",\"eventType\":\"providers/firebase.auth/eventTypes/user.create\",\"resource\":\"projects/pentia-1e4eb\",\"params\":{},\"timestamp\":\"2022-08-07T13:23:39.436Z\"}}"}}
+[debug] [2022-08-07T13:23:40.988Z] [runtime-status] [5732] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"[runtime-status] [5732] Ephemeral server survived."}}
+[info] i  functions: Finished "createUser" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-createUser"},"extension":{},"message":"Finished \"createUser\" in ~1s"}}
+[debug] [2022-08-07T13:23:40.989Z] [worker-us-central1-createUser-231f2e2d-2c52-4df8-9e3d-d48f93e3b89f]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-createUser-231f2e2d-2c52-4df8-9e3d-d48f93e3b89f]: IDLE"}}
+[debug] [2022-08-07T13:23:40.990Z] [work-queue] {"queueLength":0,"workRunningCount":0}
