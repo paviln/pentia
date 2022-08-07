@@ -13,15 +13,25 @@ const MessageItem = ({messageUser}: Props) => {
         <Image
           style={styles.image}
           source={{
-            uri: 'https://lh3.googleusercontent.com/a-/AFdZucqpANePNcvZjSIrZSzWQcCsazHStdV9lQUy6SihDw=s96-c',
+            uri: messageUser.user?.avatarUrl,
           }}
         />
         <View style={styles.body}>
           <Text>{messageUser.user?.name}</Text>
-          <Text>{messageUser.message.text}</Text>
+          {messageUser.message.text !== '' && (
+            <Text>{messageUser.message.text}</Text>
+          )}
+          {messageUser.message.imageUrl && (
+            <Image
+              style={styles.imageContent}
+              source={{
+                uri: messageUser.message.imageUrl,
+              }}
+            />
+          )}
         </View>
       </View>
-      <Text style={{alignSelf: 'flex-end'}}>
+      <Text style={styles.footer}>
         {messageUser.message.createdAt?.toDate().toLocaleString()}
       </Text>
     </View>
@@ -46,6 +56,14 @@ const styles = StyleSheet.create({
     width: 67,
     height: 59,
     paddingRight: 5,
+  },
+  imageContent: {
+    width: undefined,
+    height: 150,
+    marginTop: 5,
+  },
+  footer: {
+    alignSelf: 'flex-end',
   },
 });
 

@@ -4,7 +4,8 @@ import User from './user';
 
 export default interface Message {
   ref?: FirebaseFirestoreTypes.DocumentReference<Message>;
-  text: string;
+  text?: string;
+  imageUrl?: string;
   createdAt: FirebaseFirestoreTypes.Timestamp;
   roomRef: FirebaseFirestoreTypes.DocumentReference<Room>;
   userRef?: FirebaseFirestoreTypes.DocumentReference<User> | null;
