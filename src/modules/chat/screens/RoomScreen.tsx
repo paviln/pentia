@@ -28,18 +28,24 @@ import {
   launchCamera,
   launchImageLibrary,
 } from 'react-native-image-picker';
+import Room from '../../../models/room';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Room'>;
 
 const RoomScreen = (props: Props) => {
+  const userData = useUserContext();
+  const roomRef = props.route.params.ref;
   const [modalVisible, setModalVisible] = useState(false);
   const [messages, setMessages] = useState<MessageUserDto[]>([]);
   const [text, setText] = useState('');
-  const userData = useUserContext();
-  const roomRef = props.route.params.ref;
+  const [room, setRoom] = useState<Room>();
 
   useEffect(() => {
     const getData = async () => {
+      const roomDoc = await roomRef.get();
+      let roomData = roomDoc.data();
+      setRoom(roomData);
+
       const unsubscribe = firestore()
         .collection<Message>('messages')
         .where('roomRef', '==', roomRef)
@@ -76,6 +82,10 @@ const RoomScreen = (props: Props) => {
   const handleMessageSubmit = async () => {
     if (text !== '') {
       await sendMessage('');
+      // Check if user allready was asked to subscribe
+      if (!room?.subscribers.some(s => s.id === userData?.ref.id)) {
+        createSubscribeAlert();
+      }
       setText('');
     }
   };
@@ -114,6 +124,29 @@ const RoomScreen = (props: Props) => {
     }
     setModalVisible(false);
   };
+
+  const subscribeToRoom = () => {
+    try {
+      roomRef.update({
+        subscribers: firestore.FieldValue.arrayUnion(userData!.ref),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const createSubscribeAlert = () =>
+    Alert.alert(
+      'Notifications',
+      'Do you want to have notifications from this room?',
+      [
+        {
+          text: 'No',
+          style: 'cancel',
+        },
+        {text: 'Yes', onPress: () => subscribeToRoom()},
+      ],
+    );
 
   return (
     <SafeAreaView style={styles.container}>

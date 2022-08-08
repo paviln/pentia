@@ -14,6 +14,7 @@ import Loading from '../../../components/Loading';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../App';
+import Message from '../../../models/message';
 
 type Props = NativeStackNavigationProp<RootStackParamList, 'Room'>;
 
@@ -28,15 +29,38 @@ const RoomsList = () => {
     setLoading(false);
   }, []);
 
+  // Get a list of rooms, sorted by the newest message
+  // TODO Find a better solution, as this solution uses nested for loop, on a possible big messages list
   const getRooms = async () => {
-    const list: Room[] = [];
+    const messageSnap = await firestore()
+      .collection<Message>('messages')
+      .orderBy('createdAt', 'desc')
+      .get();
+
+    const messages = messageSnap.docs;
 
     const querySnapshot = await firestore().collection<Room>('rooms').get();
-    querySnapshot.forEach(r => {
-      list.push({...r.data(), ref: r.ref});
+    var roomList = querySnapshot.docs.map(r => {
+      return {...r.data(), ref: r.ref};
     });
 
-    setRooms(list);
+    let sortedRooms: Room[] = [];
+    for (const message of messages) {
+      let ref = message.data().roomRef;
+      for (let i = 0; i < roomList.length; i++) {
+        const room = roomList[i];
+        if (ref && room.ref.id === ref.id) {
+          sortedRooms.push(room);
+          roomList.splice(i, 1);
+          break;
+        }
+      }
+      if (roomList.length === 0) {
+        break;
+      }
+    }
+
+    setRooms(sortedRooms.concat(roomList));
   };
 
   const onRefresh = React.useCallback(async () => {

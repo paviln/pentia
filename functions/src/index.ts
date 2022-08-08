@@ -6,28 +6,6 @@ import * as functions from "firebase-functions";
 
 admin.initializeApp();
 
-// Init data
-const data = [
-  {
-    name: "General",
-    description: "General",
-  },
-  {
-    name: "Work",
-    description: "Work",
-  },
-  {
-    name: "Announcements",
-    description: "Announcements",
-  },
-];
-const batch = admin.firestore().batch();
-data.forEach((doc) => {
-  const docRef = admin.firestore().collection("rooms").doc();
-  batch.set(docRef, doc);
-});
-batch.commit();
-
 export const createUser = functions.auth.user().onCreate((user) => {
   // Unpack user data
   const userData = {
@@ -40,6 +18,45 @@ export const createUser = functions.auth.user().onCreate((user) => {
   // Save new user
   return admin.firestore().collection("users").add(userData);
 });
+
+// Send notification to all subscribed users
+export const sendRoomNotification = functions.firestore
+    .document("messages/{docId}")
+    .onCreate(async (snap, context) => {
+      const messageData = snap.data();
+      const roomRef = messageData.roomRef;
+
+      const roomSnap = await roomRef.get();
+      const room = roomSnap.data();
+      const subscribers = room.subscribers;
+
+      let tokens: string[] = [];
+      for (const subscriber of subscribers) {
+        const snap = await subscriber.get();
+        const user = snap.data();
+        tokens = tokens.concat(user.tokens);
+      }
+
+      if (tokens.length == 0) {
+        return;
+      }
+
+      const androidConfig: admin.messaging.AndroidConfig = {
+        priority: "high",
+      };
+
+      const message: admin.messaging.MulticastMessage = {
+        tokens: tokens,
+        notification: {
+          title: "New message in room",
+          body: "Touch to show the message.",
+        },
+        data: {screen: "Room", ref: roomRef},
+        android: androidConfig,
+      };
+
+      await admin.messaging().sendMulticast(message);
+    });
 
 export const removeUser = functions.auth.user().onDelete(async (user) => {
   // Find user by uid
@@ -54,3 +71,5 @@ export const removeUser = functions.auth.user().onDelete(async (user) => {
     doc.ref.delete();
   });
 });
+
+
