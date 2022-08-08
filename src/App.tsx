@@ -7,11 +7,9 @@ import messaging, {
   FirebaseMessagingTypes,
 } from '@react-native-firebase/messaging';
 import SplashScreen from 'react-native-splash-screen';
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationProp,
-} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {navigationRef, navigate} from './RootNavigation';
 import HomeScreen from './modules/chat/screens/HomeScreen';
 import LoginScreen from './modules/auth/screens/LoginScreen';
 import RoomScreen from './modules/chat/screens/RoomScreen';
@@ -25,8 +23,6 @@ export type RootStackParamList = {
   Room: {ref: FirebaseFirestoreTypes.DocumentReference<Room>};
 };
 
-type Props = NativeStackNavigationProp<RootStackParamList, 'Room'>;
-
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
@@ -34,7 +30,6 @@ const App = () => {
   const [currentUser, setCurrentUser] =
     useState<FirebaseAuthTypes.User | null>();
   const [userData, setUserData] = useState<User | null>(null);
-  const navigation = useNavigation<Props>();
 
   useEffect(() => {
     // Navigate the user to the room the message notification came from
@@ -47,7 +42,7 @@ const App = () => {
         data!.ref,
       );
       if (screen === 'Room') {
-        navigation.navigate(screen, {ref: ref});
+        navigate(screen, {ref: ref});
       }
     };
 
@@ -59,7 +54,13 @@ const App = () => {
       .getInitialNotification()
       .then(remoteMessage => {
         if (remoteMessage) {
-          navigateToScreen(remoteMessage);
+          const data = remoteMessage.data;
+          const screen = data?.screen;
+          const ref: FirebaseFirestoreTypes.DocumentReference<Room> =
+            JSON.parse(data!.ref);
+          if (screen) {
+            navigate(screen, {ref: ref});
+          }
         }
         setLoading(false);
       });
@@ -106,8 +107,8 @@ const App = () => {
 
   return (
     <UserContext.Provider value={userData}>
-      <NavigationContainer>
-        <Stack.Navigator>
+      <NavigationContainer ref={navigationRef}>
+        <Stack.Navigator initialRouteName={'Home'}>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen
             name="Room"
