@@ -29,26 +29,46 @@ import {
   launchImageLibrary,
 } from 'react-native-image-picker';
 import Room from '../../../models/room';
+import {useNavigation} from '@react-navigation/native';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Room'>;
 
 const RoomScreen = (props: Props) => {
   const userData = useUserContext();
-  const roomRef = props.route.params.ref;
+  const roomId = props.route.params.id;
   const [modalVisible, setModalVisible] = useState(false);
   const [messages, setMessages] = useState<MessageUserDto[]>([]);
   const [text, setText] = useState('');
   const [room, setRoom] = useState<Room>();
+  const navigation = useNavigation();
 
   useEffect(() => {
     const getData = async () => {
-      const roomDoc = await roomRef.get();
-      let roomData = roomDoc.data();
-      setRoom(roomData);
+      try {
+        const ref = firestore().collection<Room>('rooms').doc(roomId);
+        const doc = await ref.get();
+        const data = doc.data();
+        if (data === undefined) {
+          throw Error('Room does not exist.');
+        }
+        let roomData: Room = {...data, ref: doc.ref};
+        setRoom(roomData);
+      } catch (error) {
+        navigation.goBack();
+      }
+    };
 
+    getData();
+  }, [navigation, roomId]);
+
+  useEffect(() => {
+    if (room === undefined) {
+      return;
+    }
+    const getData = async () => {
       const unsubscribe = firestore()
         .collection<Message>('messages')
-        .where('roomRef', '==', roomRef)
+        .where('roomRef', '==', room.ref)
         .orderBy('createdAt', 'asc')
         .onSnapshot(async querySnapshot => {
           var list: MessageUserDto[] = [];
@@ -64,7 +84,7 @@ const RoomScreen = (props: Props) => {
     };
 
     getData();
-  }, [roomRef]);
+  }, [room]);
 
   const sendMessage = async (imageUrl: string) => {
     const message: Message = {
@@ -72,16 +92,21 @@ const RoomScreen = (props: Props) => {
       imageUrl: imageUrl,
       createdAt:
         firestore.FieldValue.serverTimestamp() as FirebaseFirestoreTypes.Timestamp,
-      roomRef: props.route.params.ref,
+      roomRef: room!.ref,
       userRef: userData?.ref ?? null,
     };
 
-    await firestore().collection('messages').add(message);
+    try {
+      await firestore().collection('messages').add(message);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleMessageSubmit = async () => {
     if (text !== '') {
       await sendMessage('');
+
       // Check if user allready was asked to subscribe
       if (!room?.subscribers.some(s => s.id === userData?.ref.id)) {
         createSubscribeAlert();
@@ -127,7 +152,7 @@ const RoomScreen = (props: Props) => {
 
   const subscribeToRoom = () => {
     try {
-      roomRef.update({
+      room!.ref.update({
         subscribers: firestore.FieldValue.arrayUnion(userData!.ref),
       });
     } catch (error) {
@@ -147,6 +172,10 @@ const RoomScreen = (props: Props) => {
         {text: 'Yes', onPress: () => subscribeToRoom()},
       ],
     );
+
+  if (room === undefined) {
+    return null;
+  }
 
   return (
     <SafeAreaView style={styles.container}>

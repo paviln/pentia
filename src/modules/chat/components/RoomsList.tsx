@@ -86,7 +86,7 @@ const RoomsList = () => {
           <TouchableOpacity
             key={index}
             style={styles.container}
-            onPress={() => navigation.navigate('Room', {ref: r.ref})}>
+            onPress={() => navigation.navigate('Room', {id: r.ref.id})}>
             <View style={{flexGrow: 1}}>
               <Text style={styles.title}>{r.name}</Text>
               <Text>{r.description}</Text>

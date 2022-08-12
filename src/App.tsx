@@ -20,7 +20,7 @@ import * as UserService from './services/UserService';
 
 export type RootStackParamList = {
   Home: undefined;
-  Room: {ref: FirebaseFirestoreTypes.DocumentReference<Room>};
+  Room: {id: string};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

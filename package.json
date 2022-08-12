@@ -5,6 +5,7 @@
   "scripts": {
     "emulator": "firebase emulators:start --import=firebase-export --export-on-exit=firebase-export",
     "android": "react-native run-android",
+    "android-release" : "react-native run-android --variant release",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",

@@ -39,11 +39,12 @@ const LoginScreen = () => {
 
       // Sign-in the user with the credential
       await auth().signInWithCredential(facebookCredential);
-      setLoading(false);
     } catch (error) {
       if (error instanceof Error) {
         createDialog(error.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -60,11 +61,12 @@ const LoginScreen = () => {
 
       // Sign-in the user with the credential
       await auth().signInWithCredential(googleCredential);
-      setLoading(false);
     } catch (error) {
       if (error instanceof Error) {
         createDialog(error.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
